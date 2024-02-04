@@ -4,11 +4,38 @@ titne: language buttons
 <!-- p5*js language buttons -->
 <div id="i18n-btn">
   <h2 id="i18n-settings" class="sr-only">{{#i18n "Language-Settings"}}{{/i18n}}</h2>
-  <ul id="i18n-buttons" aria-labelledby="i18n-settings">
-    <li><a href='#' lang='en' data-lang='en'>English</a></li>
-    <li><a href='#' lang='es' data-lang='es'>Español</a></li>
-    <li><a href='#' lang='zh-Hans' data-lang='zh-Hans'>简体中文</a></li>
-    <li><a href='#' lang='ko' data-lang='ko'>한국어</a></li>
-    <li><a href='#' lang='hi' data-lang='hi'>हिन्दी</a></li>
-  </ul>
+  <div class="language-dropdown-container">
+    <button id="language-button">🌐</button>
+    <ul id="i18n-buttons" aria-labelledby="i18n-settings" class="dropdown-content">
+      <li><a href='#' lang='en' data-lang='en'>English</a></li>
+      <li><a href='#' lang='es' data-lang='es'>Español</a></li>
+      <li><a href='#' lang='zh-Hans' data-lang='zh-Hans'>简体中文</a></li>
+      <li><a href='#' lang='ko' data-lang='ko'>한국어</a></li>
+      <li><a href='#' lang='hi' data-lang='hi'>हिन्दी</a></li>
+    </ul>
+  </div>
 </div>
+
+
+
+<!-- logic for dropdown -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var dropdown = document.getElementById('i18n-buttons');
+        var button = document.getElementById('language-button');
+
+        button.addEventListener('click', function () {
+            dropdown.style.display = (dropdown.style.display === 'none') ? 'block' : 'none';
+        });
+
+        dropdown.addEventListener('click', function (event) {
+            if (event.target.tagName === 'A') {
+                var selectedLang = event.target.getAttribute('data-lang');
+                // Implement language change logic here
+                console.log('Selected Language:', selectedLang);
+                // Close the dropdown after selection
+                dropdown.style.display = 'none';
+            }
+        });
+    });
+</script>

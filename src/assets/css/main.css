@@ -2943,40 +2943,74 @@ iframe {
   //////////////////////////////////////////////////
 */
 
+/* Add a style for the language dropdown container */
+.language-dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style the dropdown button */
+#language-button {
+    border: none;
+    outline: none;
+    font-size: 0.7em;
+    color: #ed225d;
+    background-color: white;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    margin-left: -5px;
+}
+
+/* Style the dropdown content */
 #i18n-buttons {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
     margin: 0;
-    background: white;
+    width: max-content; 
+    left: -65px; 
+    border: none;
 }
 
 #i18n-buttons li {
     list-style: none;
-    display: inline-block;
-    margin-left: 0.5em;
+    display: block;
+    margin: 0;
 }
 
-#i18n-btn a {
-    border: none;
-    outline: none;
-    font-size: 0.7em;
+/* Show the dropdown content when the button is hovered over */
+.language-dropdown-container:hover #i18n-buttons {
+    display: block;
+}
+
+/* Add styles for links inside the dropdown content */
+#i18n-buttons a {
+    text-decoration: none;
     color: #696969;
-    z-index: 5;
+    padding: 0.3em 0.8em;
+    display: block;
+    
+}
+
+#i18n-buttons a:hover {
+    background-color: #f9f9f9;
+    color: #ed225d;
+    border-bottom: 1px solid transparent;
 }
 
 #i18n-btn a:focus {
     color: #ed225d;
-    outline: active;
-    outline-style: dotted;
+    
 }
 
-
-#i18n-btn a:hover {
-    color: #ed225d;
-}
 
 #i18n-btn a.disabled {
     color: #ed225d;
     cursor: default;
 }
+
 
 /*
   //////////////////////////////////////////////////
